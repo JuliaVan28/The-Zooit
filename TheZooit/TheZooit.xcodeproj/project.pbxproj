@@ -11,6 +11,7 @@
 		32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E422ADED57E00AF5C09 /* ContentView.swift */; };
 		32630E452ADED57F00AF5C09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32630E442ADED57F00AF5C09 /* Assets.xcassets */; };
 		32630E482ADED57F00AF5C09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32630E472ADED57F00AF5C09 /* Preview Assets.xcassets */; };
+		32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E4F2ADF19BD00AF5C09 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		32630E422ADED57E00AF5C09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		32630E442ADED57F00AF5C09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32630E472ADED57F00AF5C09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		32630E4F2ADF19BD00AF5C09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		32630E582ADF279F00AF5C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +54,9 @@
 		32630E3F2ADED57E00AF5C09 /* TheZooit */ = {
 			isa = PBXGroup;
 			children = (
+				32630E582ADF279F00AF5C09 /* Info.plist */,
+				32630E4E2ADF19A200AF5C09 /* Views */,
 				32630E402ADED57E00AF5C09 /* TheZooitApp.swift */,
-				32630E422ADED57E00AF5C09 /* ContentView.swift */,
 				32630E442ADED57F00AF5C09 /* Assets.xcassets */,
 				32630E462ADED57F00AF5C09 /* Preview Content */,
 			);
@@ -65,6 +69,15 @@
 				32630E472ADED57F00AF5C09 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		32630E4E2ADF19A200AF5C09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32630E4F2ADF19BD00AF5C09 /* MainView.swift */,
+				32630E422ADED57E00AF5C09 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */,
+				32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */,
 				32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +289,7 @@
 				DEVELOPMENT_TEAM = L6W3DL7P44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheZooit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +319,7 @@
 				DEVELOPMENT_TEAM = L6W3DL7P44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheZooit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
