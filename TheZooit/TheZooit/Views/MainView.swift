@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        NavigationStack {
             ZStack {
                 Color("backgroundColor").ignoresSafeArea()
                 
                 VStack {
+                    // Upper Navigation Bar
                     HStack {
                         NavigationLink(destination: ContentView()) {
                             Image(systemName: "dollarsign.circle")
@@ -58,11 +58,49 @@ struct MainView: View {
                         
                     }.padding(.horizontal, 20)
                     Spacer()
-                }
+                    
+                    // Frog Image
+                    //TODO: Change hardcoded image to image from model
+                    Image("frog-main")
+                        .padding(.bottom, 60)
+                    
+                    
+                    // Timer section
+                    Text("Timer")
+                        .font(.system(size: 42))
+                        .fontWeight(.bold)
+                        .fontWidth(.expanded)
+                        .foregroundStyle(Color("customLightGreen"))
+                        
+                    
+                    //TODO: Link it to timer data
+                    Text("10:00")
+                        .font(.system(size: 60))
+                        .fontWeight(.bold)
+                        .fontWidth(.expanded)
+                        .foregroundStyle(.white)
+                    //Play and Stop buttons
+                    HStack(spacing: 18) {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "play.circle")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 53))
+                        }
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "stop.circle")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 53))
+                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                    
+                }.padding(.bottom, 50)
             }
         }
-        
-    }
 }
 
 #Preview {
