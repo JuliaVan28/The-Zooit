@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "frog-sad.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
