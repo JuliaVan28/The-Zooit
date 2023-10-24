@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32433BF62AE47807004D573A /* CircularProgressView.swift */; };
 		090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CF4522AE036A300675CF6 /* ResultSessionView.swift */; };
 		32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E402ADED57E00AF5C09 /* TheZooitApp.swift */; };
 		32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E422ADED57E00AF5C09 /* ContentView.swift */; };
 		32630E452ADED57F00AF5C09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32630E442ADED57F00AF5C09 /* Assets.xcassets */; };
 		32630E482ADED57F00AF5C09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32630E472ADED57F00AF5C09 /* Preview Assets.xcassets */; };
 		32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E4F2ADF19BD00AF5C09 /* MainView.swift */; };
+		32630E632AE2B2B900AF5C09 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E622AE2B2B900AF5C09 /* TimerViewModel.swift */; };
+		32630E662AE2B90500AF5C09 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E652AE2B90500AF5C09 /* IntExtension.swift */; };
+		32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FEA2AE6C7F8002117EB /* TimerPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32433BF62AE47807004D573A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		090CF4522AE036A300675CF6 /* ResultSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSessionView.swift; sourceTree = "<group>"; };
 		32630E3D2ADED57E00AF5C09 /* TheZooit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheZooit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32630E402ADED57E00AF5C09 /* TheZooitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheZooitApp.swift; sourceTree = "<group>"; };
@@ -24,6 +29,9 @@
 		32630E472ADED57F00AF5C09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		32630E4F2ADF19BD00AF5C09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		32630E582ADF279F00AF5C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32630E622AE2B2B900AF5C09 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		32630E652AE2B90500AF5C09 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		32B23FEA2AE6C7F8002117EB /* TimerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,13 @@
 		32630E3F2ADED57E00AF5C09 /* TheZooit */ = {
 			isa = PBXGroup;
 			children = (
-				32630E582ADF279F00AF5C09 /* Info.plist */,
+				32B23FE92AE6C7E2002117EB /* Design Components */,
+				32630E642AE2B8F500AF5C09 /* Extensions */,
 				32630E4E2ADF19A200AF5C09 /* Views */,
+				32630E672AE2B92100AF5C09 /* ViewModels */,
 				32630E402ADED57E00AF5C09 /* TheZooitApp.swift */,
 				32630E442ADED57F00AF5C09 /* Assets.xcassets */,
+				32630E582ADF279F00AF5C09 /* Info.plist */,
 				32630E462ADED57F00AF5C09 /* Preview Content */,
 			);
 			path = TheZooit;
@@ -78,9 +89,34 @@
 			children = (
 				32630E4F2ADF19BD00AF5C09 /* MainView.swift */,
 				32630E422ADED57E00AF5C09 /* ContentView.swift */,
+				32433BF62AE47807004D573A /* CircularProgressView.swift */,
 				090CF4522AE036A300675CF6 /* ResultSessionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		32630E642AE2B8F500AF5C09 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32630E652AE2B90500AF5C09 /* IntExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		32630E672AE2B92100AF5C09 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				32630E622AE2B2B900AF5C09 /* TimerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		32B23FE92AE6C7E2002117EB /* Design Components */ = {
+			isa = PBXGroup;
+			children = (
+				32B23FEA2AE6C7F8002117EB /* TimerPickerView.swift */,
+			);
+			path = "Design Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */,
+				32630E632AE2B2B900AF5C09 /* TimerViewModel.swift in Sources */,
 				090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */,
 				32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */,
 				32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */,
+				32630E662AE2B90500AF5C09 /* IntExtension.swift in Sources */,
+				32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */,
 				32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
