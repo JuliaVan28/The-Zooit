@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32433BF62AE47807004D573A /* CircularProgressView.swift */; };
+		090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CF4522AE036A300675CF6 /* ResultSessionView.swift */; };
 		32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E402ADED57E00AF5C09 /* TheZooitApp.swift */; };
 		32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E422ADED57E00AF5C09 /* ContentView.swift */; };
 		32630E452ADED57F00AF5C09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32630E442ADED57F00AF5C09 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		32433BF62AE47807004D573A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		090CF4522AE036A300675CF6 /* ResultSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSessionView.swift; sourceTree = "<group>"; };
 		32630E3D2ADED57E00AF5C09 /* TheZooit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheZooit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32630E402ADED57E00AF5C09 /* TheZooitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheZooitApp.swift; sourceTree = "<group>"; };
 		32630E422ADED57E00AF5C09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				32630E4F2ADF19BD00AF5C09 /* MainView.swift */,
 				32630E422ADED57E00AF5C09 /* ContentView.swift */,
 				32433BF62AE47807004D573A /* CircularProgressView.swift */,
+				090CF4522AE036A300675CF6 /* ResultSessionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */,
 				32630E632AE2B2B900AF5C09 /* TimerViewModel.swift in Sources */,
+				090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */,
 				32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */,
 				32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */,
 				32630E662AE2B90500AF5C09 /* IntExtension.swift in Sources */,
