@@ -13,9 +13,12 @@ class TimerViewModel: ObservableObject {
     @Published var selectedMinutesAmount = 10
     @Published var selectedSecondsAmount = 0
     
-    @Published var secondsToCompletion: Float = 0.0
+    @Published var secondsToCompletion: Int = 0
     @Published var progress: Float = 0.0
     @Published var animationProgress: Double = 0.0
+    @Published var isTimerFinished: Bool = false
+    @Published var studySession: SessionModel = SessionModel()
+
     
     
     let hoursRange = 0...23
@@ -51,12 +54,17 @@ class TimerViewModel: ObservableObject {
             case .cancelled:
                 // Cancel the timer and reset all progress properties
                 withAnimation {
+                    studySession.duration = Int((totalTimeForCurrentSelection - secondsToCompletion) / 60)
+                    studySession.rewardCoins = studySession.duration * 10
+                    
                     timer.invalidate()
                     animationTimer.upstream.connect().cancel()
                     
-                    secondsToCompletion = Float(defaultTimerSettings)
+                    secondsToCompletion = defaultTimerSettings
                     progress = 0
                     animationProgress = 0
+                    isTimerFinished = true
+                    
                 }
                 
             case .active:
@@ -65,9 +73,12 @@ class TimerViewModel: ObservableObject {
                 
                 animationTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                 
-                secondsToCompletion = Float(totalTimeForCurrentSelection)
+                secondsToCompletion = totalTimeForCurrentSelection
                 progress = 1.0
-                
+                studySession.rewardCoins = 0
+                studySession.duration = 0
+                isTimerFinished = false
+                studySession.isFinished = false
                 
             case .paused:
                     animationTimer.upstream.connect().cancel()

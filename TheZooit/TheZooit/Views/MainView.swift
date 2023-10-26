@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
+    @AppStorage("userCoins") var userCoins: Int = 0
     
     @StateObject private var modelTimer = TimerViewModel()
     
     @State private var isCanceledTimer: Bool = false
-    @State private var showTimerSettingsModal = false
+    @State private var showTimerSettingsModal: Bool = false
     @State private var timerValue: Int = 0
-    
-    
+
     var body: some View {
         ZStack {
             Color("backgroundColor").ignoresSafeArea()
@@ -23,18 +23,23 @@ struct MainView: View {
             VStack {
                 //MARK:  Upper Navigation Bar
                 HStack {
-                    NavigationLink(destination: ContentView()) {
-                        Image(systemName: "dollarsign.circle")
-                            .foregroundStyle(Color("customLightGreen"))
-                            .font(.system(size: 30))
-                            .frame(width: 35, height: 35)
-                        
-                    }
-                    //TODO: change to coins model data
-                    Text("356")
+                    // NavigationLink(destination: ContentView()) {
+                    Image(systemName: "dollarsign.circle")
+                        .foregroundStyle(Color("customLightGreen"))
+                        .font(.system(size: 30))
+                        .frame(width: 35, height: 35)
+                    
+                    //  }
+                    Text("\(userCoins)")
                         .font(.system(size: 28))
                         .fontWeight(.regular)
                         .fontWidth(.expanded)
+                        .contentTransition(.numericText())
+                        .onChange(of: modelTimer.studySession.isFinished && modelTimer.studySession.isFinished != false ) {
+                            withAnimation(.default.speed(0.7).delay(0.5)) {
+                                userCoins += modelTimer.studySession.rewardCoins
+                            }
+                        }
                     Spacer()
                     Image(systemName: "flame.circle")
                         .foregroundStyle(Color("customLightGreen"))
@@ -47,6 +52,7 @@ struct MainView: View {
                         .fontWeight(.regular)
                         .fontWidth(.expanded)
                     Spacer()
+                    //Music button
                     NavigationLink(destination: ContentView()) {
                         Image(systemName: "music.note.list")
                             .foregroundStyle(Color("customLightGreen"))
@@ -97,7 +103,7 @@ struct MainView: View {
                         .contentTransition(.numericText())
                         .onChange(of: modelTimer.secondsToCompletion) {
                             withAnimation(.default.speed(1)) {
-                                timerValue = Int(modelTimer.secondsToCompletion)
+                                timerValue = modelTimer.secondsToCompletion
                             }
                         }
                         .font(.system(size: 54))
@@ -105,6 +111,8 @@ struct MainView: View {
                         .fontWidth(.expanded)
                         .foregroundStyle(.white)
                 }.padding(.bottom, 20)
+                
+                //MARK: Timer Settings
                     .sheet(isPresented: $showTimerSettingsModal) {
                         ZStack {
                             Color("backgroundColor").ignoresSafeArea()
@@ -135,7 +143,7 @@ struct MainView: View {
                                                 .fontWidth(.expanded)
                                                 .font(.system(size: 30))
                                         }                                    .foregroundColor(Color("customLightGreen"))
-                                    }.padding(.bottom, 30)
+                                    }.padding(.bottom, 20)
                                 }
                             }
                             
@@ -169,12 +177,15 @@ struct MainView: View {
                                     .foregroundStyle(.white)
                                     .font(.system(size: 57))
                                     .opacity(0.9)
-                            }.alert(isPresented: $isCanceledTimer) {
+                            }
+                            //MARK: Alert
+                            .alert(isPresented: $isCanceledTimer) {
                                 Alert(
                                     title: Text("Are you sure you want to cancel the study session?"),
                                     primaryButton: .default(
                                         Text("Yes"),
                                         action: {
+                                            modelTimer.isTimerFinished = true
                                             withAnimation(.easeIn(duration: 0.3)) {
                                                 modelTimer.state = .cancelled
                                             }
@@ -257,6 +268,12 @@ struct MainView: View {
                     }
                 }
             }.padding(.bottom, 20)
+            .fullScreenCover(
+                isPresented: $modelTimer.isTimerFinished,
+                    content: {
+                        ResultSessionView(studySession: $modelTimer.studySession)
+                            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                    })
         }
     }
 }
