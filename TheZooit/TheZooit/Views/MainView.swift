@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+
 struct MainView: View {
     @AppStorage("userCoins") var userCoins: Int = 0
+    @AppStorage("lastSessionCompletionDate") var lastSessionCompletionDate: Date?
+    @AppStorage("currentSessionCompletionDate") var currentSessionCompletionDate: Date?
+    @AppStorage("dailyStreak") var dailyStreakCounter: Int = 0
     
     @StateObject private var modelTimer = TimerViewModel()
+    @State var dailyStreak = DailyStreakModel()
     
     @State private var isCanceledTimer: Bool = false
     @State private var showTimerSettingsModal: Bool = false
@@ -46,8 +51,7 @@ struct MainView: View {
                         .font(.system(size: 30))
                         .frame(width: 35, height: 35)
                     
-                    //TODO: change to streak model data
-                    Text("3")
+                    Text("\(dailyStreakCounter)")
                         .font(.system(size: 28))
                         .fontWeight(.regular)
                         .fontWidth(.expanded)
@@ -271,9 +275,18 @@ struct MainView: View {
             .fullScreenCover(
                 isPresented: $modelTimer.isTimerFinished,
                     content: {
-                        ResultSessionView(studySession: $modelTimer.studySession)
+                        ResultSessionView(studySession: $modelTimer.studySession,dailyStreak: $dailyStreak)
                             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
                     })
+        }.onAppear {
+            // Checking if the last study session was 2 or more days ago
+            var dayBeforeYesterdayDate: Date! = Calendar.current.date(byAdding: .day, value: -2, to: Date())
+            if let lastCompletionDate = UserDefaults.standard.object(forKey: "lastSessionCompletionDate") as? Date {
+                if lastCompletionDate <= dayBeforeYesterdayDate {
+                    UserDefaults.standard.set(0, forKey: "dailyStreak")
+                }
+            }
+
         }
     }
 }

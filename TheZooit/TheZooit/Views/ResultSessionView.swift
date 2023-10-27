@@ -12,6 +12,7 @@ struct ResultSessionView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var studySession: SessionModel
+    @Binding var dailyStreak: DailyStreakModel
     
     var body: some View {
         NavigationStack {
@@ -94,6 +95,8 @@ struct ResultSessionView: View {
                     //Home button
                     Button(action: {
                         withAnimation() {
+                            dailyStreak.recordStudySessionCompletion()
+                            dailyStreak.updateDailyStreak()
                             studySession.isFinished = true
                             dismiss()
                         }
@@ -118,8 +121,11 @@ struct ResultSessionView: View {
 
 struct ResultSessionView_Previews: PreviewProvider {
     @State static var session = SessionModel(duration: 3, rewardCoins: 3)
+    @State static var streak = DailyStreakModel()
+    
     static var previews: some View {
-        ResultSessionView(studySession: $session)
+        ResultSessionView(studySession: $session, dailyStreak: $streak)
             .preferredColorScheme(.dark)
+        
     }
 }

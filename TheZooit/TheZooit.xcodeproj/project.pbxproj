@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CF4522AE036A300675CF6 /* ResultSessionView.swift */; };
+		09424BA92AEBEC0800E3553D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09424BA82AEBEC0800E3553D /* DateExtension.swift */; };
+		09424BAB2AEBEC3700E3553D /* DailyStreakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */; };
 		32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32433BF62AE47807004D573A /* CircularProgressView.swift */; };
 		32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E402ADED57E00AF5C09 /* TheZooitApp.swift */; };
 		32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E422ADED57E00AF5C09 /* ContentView.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		090CF4522AE036A300675CF6 /* ResultSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSessionView.swift; sourceTree = "<group>"; };
+		09424BA82AEBEC0800E3553D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStreakModel.swift; sourceTree = "<group>"; };
 		32433BF62AE47807004D573A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		32630E3D2ADED57E00AF5C09 /* TheZooit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheZooit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32630E402ADED57E00AF5C09 /* TheZooitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheZooitApp.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				32630E652AE2B90500AF5C09 /* IntExtension.swift */,
+				09424BA82AEBEC0800E3553D /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				32B23FEC2AEAF302002117EB /* SessionModel.swift */,
+				09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,8 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */,
+				09424BA92AEBEC0800E3553D /* DateExtension.swift in Sources */,
 				32630E632AE2B2B900AF5C09 /* TimerViewModel.swift in Sources */,
 				32B23FED2AEAF302002117EB /* SessionModel.swift in Sources */,
+				09424BAB2AEBEC3700E3553D /* DailyStreakModel.swift in Sources */,
 				090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */,
 				32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */,
 				32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */,
