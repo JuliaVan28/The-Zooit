@@ -11,7 +11,12 @@ import SwiftUI
 struct TheZooitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                MainView()
+                    .environment(\.colorScheme, .dark)
+            }
         }
     }
 }
+
+
