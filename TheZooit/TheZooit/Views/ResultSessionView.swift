@@ -12,7 +12,7 @@ struct ResultSessionView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var studySession: SessionModel
-    @Binding var dailyStreak: DailyStreakModel
+    @Binding var dailyStreak: DailyStreakViewModel
     
     var body: some View {
         NavigationStack {
@@ -121,7 +121,7 @@ struct ResultSessionView: View {
 
 struct ResultSessionView_Previews: PreviewProvider {
     @State static var session = SessionModel(duration: 3, rewardCoins: 3)
-    @State static var streak = DailyStreakModel()
+    @State static var streak = DailyStreakViewModel()
     
     static var previews: some View {
         ResultSessionView(studySession: $session, dailyStreak: $streak)

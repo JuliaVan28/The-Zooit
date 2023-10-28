@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CF4522AE036A300675CF6 /* ResultSessionView.swift */; };
 		09424BA92AEBEC0800E3553D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09424BA82AEBEC0800E3553D /* DateExtension.swift */; };
-		09424BAB2AEBEC3700E3553D /* DailyStreakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */; };
+		09424BAB2AEBEC3700E3553D /* DailyStreakViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09424BAA2AEBEC3700E3553D /* DailyStreakViewModel.swift */; };
 		32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32433BF62AE47807004D573A /* CircularProgressView.swift */; };
 		32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E402ADED57E00AF5C09 /* TheZooitApp.swift */; };
 		32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E422ADED57E00AF5C09 /* ContentView.swift */; };
@@ -20,12 +20,26 @@
 		32630E662AE2B90500AF5C09 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630E652AE2B90500AF5C09 /* IntExtension.swift */; };
 		32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FEA2AE6C7F8002117EB /* TimerPickerView.swift */; };
 		32B23FED2AEAF302002117EB /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FEC2AEAF302002117EB /* SessionModel.swift */; };
+		32B23FF02AED8322002117EB /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FEF2AED8322002117EB /* MusicView.swift */; };
+		32B23FF22AED85FD002117EB /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FF12AED85FD002117EB /* SongModel.swift */; };
+		32B23FF62AED8A59002117EB /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B23FF52AED8A59002117EB /* MusicViewModel.swift */; };
+		32B23FFA2AED96A2002117EB /* lofi-study-112191.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B23FF92AED96A2002117EB /* lofi-study-112191.mp3 */; };
+		32B23FFC2AED96A9002117EB /* morning-garden-acoustic-chill-15013.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B23FFB2AED96A9002117EB /* morning-garden-acoustic-chill-15013.mp3 */; };
+		32B23FFE2AED96AE002117EB /* once-in-paris-168895.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B23FFD2AED96AE002117EB /* once-in-paris-168895.mp3 */; };
+		32B240022AED96C4002117EB /* soft-rain-ambient-111154.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240012AED96C4002117EB /* soft-rain-ambient-111154.mp3 */; };
+		32B240042AED96CA002117EB /* scary-forest-90162.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240032AED96CA002117EB /* scary-forest-90162.mp3 */; };
+		32B240062AED96CC002117EB /* the-cradle-of-your-soul-15700.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240052AED96CC002117EB /* the-cradle-of-your-soul-15700.mp3 */; };
+		32B240082AED96D1002117EB /* random-thoughts-20586.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240072AED96D1002117EB /* random-thoughts-20586.mp3 */; };
+		32B240092AED96F1002117EB /* ambient-piano-ampamp-strings-10711.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B23FF72AED9529002117EB /* ambient-piano-ampamp-strings-10711.mp3 */; };
+		32B240122AED97BE002117EB /* piano-moment-9835.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240112AED97B7002117EB /* piano-moment-9835.mp3 */; };
+		32EFCEC22AEDAD4A00C57555 /* price-of-freedom-33106.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32B240142AED97E1002117EB /* price-of-freedom-33106.mp3 */; };
+		32EFCEC82AEDC01900C57555 /* Frog_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32EFCEC72AEDC01900C57555 /* Frog_sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		090CF4522AE036A300675CF6 /* ResultSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSessionView.swift; sourceTree = "<group>"; };
 		09424BA82AEBEC0800E3553D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStreakModel.swift; sourceTree = "<group>"; };
+		09424BAA2AEBEC3700E3553D /* DailyStreakViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStreakViewModel.swift; sourceTree = "<group>"; };
 		32433BF62AE47807004D573A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		32630E3D2ADED57E00AF5C09 /* TheZooit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheZooit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32630E402ADED57E00AF5C09 /* TheZooitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheZooitApp.swift; sourceTree = "<group>"; };
@@ -38,6 +52,20 @@
 		32630E652AE2B90500AF5C09 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		32B23FEA2AE6C7F8002117EB /* TimerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPickerView.swift; sourceTree = "<group>"; };
 		32B23FEC2AEAF302002117EB /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
+		32B23FEF2AED8322002117EB /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
+		32B23FF12AED85FD002117EB /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		32B23FF52AED8A59002117EB /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		32B23FF72AED9529002117EB /* ambient-piano-ampamp-strings-10711.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ambient-piano-ampamp-strings-10711.mp3"; sourceTree = "<group>"; };
+		32B23FF92AED96A2002117EB /* lofi-study-112191.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lofi-study-112191.mp3"; sourceTree = "<group>"; };
+		32B23FFB2AED96A9002117EB /* morning-garden-acoustic-chill-15013.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "morning-garden-acoustic-chill-15013.mp3"; sourceTree = "<group>"; };
+		32B23FFD2AED96AE002117EB /* once-in-paris-168895.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "once-in-paris-168895.mp3"; sourceTree = "<group>"; };
+		32B240012AED96C4002117EB /* soft-rain-ambient-111154.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "soft-rain-ambient-111154.mp3"; sourceTree = "<group>"; };
+		32B240032AED96CA002117EB /* scary-forest-90162.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "scary-forest-90162.mp3"; sourceTree = "<group>"; };
+		32B240052AED96CC002117EB /* the-cradle-of-your-soul-15700.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "the-cradle-of-your-soul-15700.mp3"; sourceTree = "<group>"; };
+		32B240072AED96D1002117EB /* random-thoughts-20586.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "random-thoughts-20586.mp3"; sourceTree = "<group>"; };
+		32B240112AED97B7002117EB /* piano-moment-9835.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "piano-moment-9835.mp3"; sourceTree = "<group>"; };
+		32B240142AED97E1002117EB /* price-of-freedom-33106.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "price-of-freedom-33106.mp3"; sourceTree = "<group>"; };
+		32EFCEC72AEDC01900C57555 /* Frog_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Frog_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +104,7 @@
 				32630E672AE2B92100AF5C09 /* ViewModels */,
 				32B23FE92AE6C7E2002117EB /* Design Components */,
 				32630E402ADED57E00AF5C09 /* TheZooitApp.swift */,
+				32B240132AED97D0002117EB /* Track List */,
 				32630E442ADED57F00AF5C09 /* Assets.xcassets */,
 				32630E582ADF279F00AF5C09 /* Info.plist */,
 				32630E462ADED57F00AF5C09 /* Preview Content */,
@@ -97,6 +126,7 @@
 				32630E4F2ADF19BD00AF5C09 /* MainView.swift */,
 				32630E422ADED57E00AF5C09 /* ContentView.swift */,
 				090CF4522AE036A300675CF6 /* ResultSessionView.swift */,
+				32B23FEF2AED8322002117EB /* MusicView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,7 +143,9 @@
 		32630E672AE2B92100AF5C09 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				09424BAA2AEBEC3700E3553D /* DailyStreakViewModel.swift */,
 				32630E622AE2B2B900AF5C09 /* TimerViewModel.swift */,
+				32B23FF52AED8A59002117EB /* MusicViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -131,9 +163,27 @@
 			isa = PBXGroup;
 			children = (
 				32B23FEC2AEAF302002117EB /* SessionModel.swift */,
-				09424BAA2AEBEC3700E3553D /* DailyStreakModel.swift */,
+				32B23FF12AED85FD002117EB /* SongModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		32B240132AED97D0002117EB /* Track List */ = {
+			isa = PBXGroup;
+			children = (
+				32EFCEC72AEDC01900C57555 /* Frog_sound.mp3 */,
+				32B240012AED96C4002117EB /* soft-rain-ambient-111154.mp3 */,
+				32B23FF92AED96A2002117EB /* lofi-study-112191.mp3 */,
+				32B23FFD2AED96AE002117EB /* once-in-paris-168895.mp3 */,
+				32B23FFB2AED96A9002117EB /* morning-garden-acoustic-chill-15013.mp3 */,
+				32B23FF72AED9529002117EB /* ambient-piano-ampamp-strings-10711.mp3 */,
+				32B240072AED96D1002117EB /* random-thoughts-20586.mp3 */,
+				32B240052AED96CC002117EB /* the-cradle-of-your-soul-15700.mp3 */,
+				32B240032AED96CA002117EB /* scary-forest-90162.mp3 */,
+				32B240142AED97E1002117EB /* price-of-freedom-33106.mp3 */,
+				32B240112AED97B7002117EB /* piano-moment-9835.mp3 */,
+			);
+			path = "Track List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +246,17 @@
 			files = (
 				32630E482ADED57F00AF5C09 /* Preview Assets.xcassets in Resources */,
 				32630E452ADED57F00AF5C09 /* Assets.xcassets in Resources */,
+				32B23FFA2AED96A2002117EB /* lofi-study-112191.mp3 in Resources */,
+				32B240122AED97BE002117EB /* piano-moment-9835.mp3 in Resources */,
+				32B240082AED96D1002117EB /* random-thoughts-20586.mp3 in Resources */,
+				32B23FFC2AED96A9002117EB /* morning-garden-acoustic-chill-15013.mp3 in Resources */,
+				32B240062AED96CC002117EB /* the-cradle-of-your-soul-15700.mp3 in Resources */,
+				32B240092AED96F1002117EB /* ambient-piano-ampamp-strings-10711.mp3 in Resources */,
+				32B240022AED96C4002117EB /* soft-rain-ambient-111154.mp3 in Resources */,
+				32B240042AED96CA002117EB /* scary-forest-90162.mp3 in Resources */,
+				32EFCEC22AEDAD4A00C57555 /* price-of-freedom-33106.mp3 in Resources */,
+				32B23FFE2AED96AE002117EB /* once-in-paris-168895.mp3 in Resources */,
+				32EFCEC82AEDC01900C57555 /* Frog_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,14 +269,17 @@
 			files = (
 				32B23FEB2AE6C7F8002117EB /* TimerPickerView.swift in Sources */,
 				09424BA92AEBEC0800E3553D /* DateExtension.swift in Sources */,
+				32B23FF62AED8A59002117EB /* MusicViewModel.swift in Sources */,
 				32630E632AE2B2B900AF5C09 /* TimerViewModel.swift in Sources */,
 				32B23FED2AEAF302002117EB /* SessionModel.swift in Sources */,
-				09424BAB2AEBEC3700E3553D /* DailyStreakModel.swift in Sources */,
+				09424BAB2AEBEC3700E3553D /* DailyStreakViewModel.swift in Sources */,
+				32B23FF22AED85FD002117EB /* SongModel.swift in Sources */,
 				090CF4532AE036A300675CF6 /* ResultSessionView.swift in Sources */,
 				32630E432ADED57E00AF5C09 /* ContentView.swift in Sources */,
 				32630E502ADF19BD00AF5C09 /* MainView.swift in Sources */,
 				32630E662AE2B90500AF5C09 /* IntExtension.swift in Sources */,
 				32433BF72AE47807004D573A /* CircularProgressView.swift in Sources */,
+				32B23FF02AED8322002117EB /* MusicView.swift in Sources */,
 				32630E412ADED57E00AF5C09 /* TheZooitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

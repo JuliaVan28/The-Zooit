@@ -10,12 +10,10 @@ import SwiftUI
 
 struct MainView: View {
     @AppStorage("userCoins") var userCoins: Int = 0
-    @AppStorage("lastSessionCompletionDate") var lastSessionCompletionDate: Date?
-    @AppStorage("currentSessionCompletionDate") var currentSessionCompletionDate: Date?
-    @AppStorage("dailyStreak") var dailyStreakCounter: Int = 0
-    
-    @StateObject private var modelTimer = TimerViewModel()
-    @State var dailyStreak = DailyStreakModel()
+
+    @StateObject private var timerModel = TimerViewModel()
+    @State var dailyStreak = DailyStreakViewModel()
+    @StateObject var music = MusicViewModel()
     
     @State private var isCanceledTimer: Bool = false
     @State private var showTimerSettingsModal: Bool = false
@@ -40,9 +38,9 @@ struct MainView: View {
                         .fontWeight(.regular)
                         .fontWidth(.expanded)
                         .contentTransition(.numericText())
-                        .onChange(of: modelTimer.studySession.isFinished && modelTimer.studySession.isFinished != false ) {
+                        .onChange(of: timerModel.studySession.isFinished && timerModel.studySession.isFinished != false ) {
                             withAnimation(.default.speed(0.7).delay(0.5)) {
-                                userCoins += modelTimer.studySession.rewardCoins
+                                userCoins += timerModel.studySession.rewardCoins
                             }
                         }
                     Spacer()
@@ -51,13 +49,13 @@ struct MainView: View {
                         .font(.system(size: 30))
                         .frame(width: 35, height: 35)
                     
-                    Text("\(dailyStreakCounter)")
+                    Text("\(dailyStreak.dailyStreakCounter)")
                         .font(.system(size: 28))
                         .fontWeight(.regular)
                         .fontWidth(.expanded)
                     Spacer()
                     //Music button
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: MusicView(music: music).preferredColorScheme(.dark)) {
                         Image(systemName: "music.note.list")
                             .foregroundStyle(Color("customLightGreen"))
                             .font(.system(size: 16))
@@ -77,18 +75,23 @@ struct MainView: View {
                 //MARK:  Frog Image
                 //TODO: Change hardcoded image to image from model
                 ZStack {
-                    CircularProgressView(progress: $modelTimer.animationProgress, timerModel: modelTimer)
+                    CircularProgressView(progress: $timerModel.animationProgress, timerModel: timerModel)
                         .frame(width: 350)
                         .padding(.bottom, 30)
-                        .opacity(modelTimer.state == .active || modelTimer.state == .paused || modelTimer.state == .resumed ? 1 : 0)
+                        .opacity(timerModel.state == .active || timerModel.state == .paused || timerModel.state == .resumed ? 1 : 0)
                     withAnimation {
                         Image("frog-main")
                             .resizable()
                             .frame(width: 260, height: 310)
                             .padding(.bottom, 30)
-                    }.scaleEffect(modelTimer.state == .active || modelTimer.state == .paused || modelTimer.state == .resumed ? 0.9 : 1.0)
-                        .scaleEffect(modelTimer.state == .cancelled ? 1.0 : 0.9)
-                        .opacity(modelTimer.state == .active || modelTimer.state == .paused || modelTimer.state == .resumed ? 0.7 : 1)
+                            .onTapGesture {
+                                if timerModel.state == .cancelled {
+                                    music.playFrogSound()
+                                }
+                            }
+                    }.scaleEffect(timerModel.state == .active || timerModel.state == .paused || timerModel.state == .resumed ? 0.9 : 1.0)
+                        .scaleEffect(timerModel.state == .cancelled ? 1.0 : 0.9)
+                        .opacity(timerModel.state == .active || timerModel.state == .paused || timerModel.state == .resumed ? 0.7 : 1)
                 }
                 //MARK: Timer Section
                 Text("Timer")
@@ -99,15 +102,15 @@ struct MainView: View {
                     .padding(.top, 10)
                 
                 Button {
-                    if modelTimer.state == .cancelled {
+                    if timerModel.state == .cancelled {
                         showTimerSettingsModal.toggle()
                     }
                 } label: {
-                    Text( modelTimer.state == .active || modelTimer.state == .paused || modelTimer.state == .resumed ? timerValue.asTimestamp : modelTimer.getTotalTime().asTimestamp)
+                    Text( timerModel.state == .active || timerModel.state == .paused || timerModel.state == .resumed ? timerValue.asTimestamp : timerModel.getTotalTime().asTimestamp)
                         .contentTransition(.numericText())
-                        .onChange(of: modelTimer.secondsToCompletion) {
+                        .onChange(of: timerModel.secondsToCompletion) {
                             withAnimation(.default.speed(1)) {
-                                timerValue = modelTimer.secondsToCompletion
+                                timerValue = timerModel.secondsToCompletion
                             }
                         }
                         .font(.system(size: 54))
@@ -122,9 +125,9 @@ struct MainView: View {
                             Color("backgroundColor").ignoresSafeArea()
                             VStack {
                                 HStack {
-                                    TimerPickerView(title: "hours", range: modelTimer.hoursRange, binding: $modelTimer.selectedHoursAmount)
-                                    TimerPickerView(title: "min", range: modelTimer.minutesRange, binding: $modelTimer.selectedMinutesAmount)
-                                    TimerPickerView(title: "sec", range: modelTimer.secondsRange, binding: $modelTimer.selectedSecondsAmount)
+                                    TimerPickerView(title: "hours", range: timerModel.hoursRange, binding: $timerModel.selectedHoursAmount)
+                                    TimerPickerView(title: "min", range: timerModel.minutesRange, binding: $timerModel.selectedMinutesAmount)
+                                    TimerPickerView(title: "sec", range: timerModel.secondsRange, binding: $timerModel.selectedSecondsAmount)
                                 }
                                 .padding(.all, 32)
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -160,12 +163,12 @@ struct MainView: View {
                 //: Timer Section
                 
                 //MARK: Timer buttons
-                switch modelTimer.state {
+                switch timerModel.state {
                 case .active, .resumed:
                     withAnimation {
                         HStack (spacing: 30) {
                             Button {
-                                modelTimer.state = .paused
+                                timerModel.state = .paused
                             } label: {
                                 
                                 Image(systemName: "pause.circle.fill")
@@ -174,7 +177,7 @@ struct MainView: View {
                             }
                             
                             Button {
-                                modelTimer.state = .paused
+                                timerModel.state = .paused
                                 isCanceledTimer = true
                             } label: {
                                 Image(systemName: "xmark.circle")
@@ -189,16 +192,16 @@ struct MainView: View {
                                     primaryButton: .default(
                                         Text("Yes"),
                                         action: {
-                                            modelTimer.isTimerFinished = true
+                                            timerModel.isTimerFinished = true
                                             withAnimation(.easeIn(duration: 0.3)) {
-                                                modelTimer.state = .cancelled
+                                                timerModel.state = .cancelled
                                             }
                                         }),
                                     secondaryButton: .cancel(
                                         Text("No"),
                                         action: {
                                             withAnimation(.easeIn(duration: 0.3)) {
-                                                modelTimer.state = .resumed
+                                                timerModel.state = .resumed
                                             }
                                         }))
                             }
@@ -208,7 +211,7 @@ struct MainView: View {
                 case .paused:
                     HStack (spacing: 30) {
                         Button {
-                            modelTimer.state = .resumed
+                            timerModel.state = .resumed
                         } label: {
                             
                             Image(systemName: "play.circle.fill")
@@ -231,14 +234,14 @@ struct MainView: View {
                                     Text("Yes"),
                                     action: {
                                         withAnimation(.easeIn(duration: 0.3)) {
-                                            modelTimer.state = .cancelled
+                                            timerModel.state = .cancelled
                                         }
                                     }),
                                 secondaryButton: .cancel(
                                     Text("No"),
                                     action: {
                                         withAnimation(.easeIn(duration: 0.3)) {
-                                            modelTimer.state = .resumed
+                                            timerModel.state = .resumed
                                         }
                                     }))
                         }
@@ -247,7 +250,7 @@ struct MainView: View {
                     Button {
                         isCanceledTimer = false
                         withAnimation(.easeIn(duration: 0.3)) {
-                            modelTimer.state = .active
+                            timerModel.state = .active
                         }
                     } label: {
                         withAnimation {
@@ -273,14 +276,14 @@ struct MainView: View {
                 }
             }.padding(.bottom, 20)
             .fullScreenCover(
-                isPresented: $modelTimer.isTimerFinished,
+                isPresented: $timerModel.isTimerFinished,
                     content: {
-                        ResultSessionView(studySession: $modelTimer.studySession,dailyStreak: $dailyStreak)
+                        ResultSessionView(studySession: $timerModel.studySession, dailyStreak: $dailyStreak)
                             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
                     })
         }.onAppear {
             // Checking if the last study session was 2 or more days ago
-            var dayBeforeYesterdayDate: Date! = Calendar.current.date(byAdding: .day, value: -2, to: Date())
+            let dayBeforeYesterdayDate: Date! = Calendar.current.date(byAdding: .day, value: -2, to: Date())
             if let lastCompletionDate = UserDefaults.standard.object(forKey: "lastSessionCompletionDate") as? Date {
                 if lastCompletionDate <= dayBeforeYesterdayDate {
                     UserDefaults.standard.set(0, forKey: "dailyStreak")
