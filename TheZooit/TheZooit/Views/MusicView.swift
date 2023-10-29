@@ -67,7 +67,7 @@ struct MusicView: View {
                             .frame(width: 59, height: 30)
                     }
                     Button{
-                        music.isPlaying ? music.stopAudio() : music.playAudio(songIndex: nil)
+                        music.isPlaying ? music.stopAudio() : music.playAudio(songIndex: music.currentSongIndex)
                     }label: {
                         Image(systemName: music.isPlaying ? "pause.fill" : "play.fill").foregroundStyle(Color("customLightGreen"))
                             .font(.system(size: 50))

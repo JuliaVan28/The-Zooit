@@ -14,7 +14,7 @@ class MusicViewModel: ObservableObject {
     @Published var currentSongIndex: Int? = nil
     
     private var player: AVAudioPlayer?
-    
+    private var frogPlayer: AVAudioPlayer?
     
     func setupAudio(audioFileName: String = "ambient-piano-ampamp-strings-10711"){
         print("in setupAudion func. audioFileName: \(audioFileName)")
@@ -77,9 +77,29 @@ class MusicViewModel: ObservableObject {
         playAudio(songIndex: currentSongIndex)
     }
     
+    
+    
     func playFrogSound() {
-        setupAudio(audioFileName: "Frog_sound")
-        player?.play()
+        guard let url = Bundle.main.url(forResource: "Frog_sound", withExtension: "mp3")
+        else { print("couldn't set up url")
+            return }
+        do {
+            if let bundlePath = Bundle.main.path(forResource: "Frog_sound", ofType: "mp3") {
+                print("File exists at: \(bundlePath)")
+            } else {
+                print("File not found")
+            }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            } catch {
+                print("Error setting audio session category: \(error)")
+            }
+            frogPlayer = try AVAudioPlayer(contentsOf: url)
+            frogPlayer?.prepareToPlay()
+        } catch {
+            print("Error loading audio: (error)")
+        }
+        frogPlayer?.play()
     }
     
     var songs: [SongModel] = [
