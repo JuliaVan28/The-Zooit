@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit //for UIApplication
 @main
 struct TheZooitApp: App {
     var body: some Scene {
@@ -14,6 +14,9 @@ struct TheZooitApp: App {
             NavigationStack {
                 MainView()
                     .environment(\.colorScheme, .dark)
+                    .onAppear(){
+                        UIApplication.shared.isIdleTimerDisabled = true //the screen dosen't block when you star the timer
+                    }
             }
         }
     }
